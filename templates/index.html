@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live YOLOv8 Object Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Live Object Detection</h1>
+            <p>Real-time detection powered by YOLOv8</p>
+        </header>
+
+        <main>
+            <div class="video-container">
+                <img id="video-stream" src="{{ url_for('video_feed') }}" alt="Video Stream">
+                <div class="status-indicator" id="status">
+                    <span id="status-text">Ready</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-start" id="start-btn" onclick="startDetection()">
+                    <span class="icon">▶</span> Start Detection
+                </button>
+                <button class="btn btn-stop" id="stop-btn" onclick="stopDetection()" disabled>
+                    <span class="icon">■</span> Stop Detection
+                </button>
+                <button class="btn btn-close" id="close-btn" onclick="closeCamera()">
+                    <span class="icon">✕</span> Close Camera
+                </button>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-item">
+                    <h3>Detection Status</h3>
+                    <p id="detection-status">Waiting to start...</p>
+                </div>
+                <div class="info-item">
+                    <h3>Instructions</h3>
+                    <ul>
+                        <li>Click "Start Detection" to begin</li>
+                        <li>Click "Stop Detection" to pause</li>
+                        <li>Objects will be detected in real-time</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 YOLOv8 Live Detection | Fast, Accurate, Real-time</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
